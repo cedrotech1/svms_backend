@@ -173,8 +173,8 @@ export const addUser = async (req, res) => {
     }
 
     // generate password
-    const password = `D${Math.random().toString(36).slice(-8)}`;
-    // const password = `1234`;
+    // const password = `D${Math.random().toString(36).slice(-8)}`;
+    const password = `1234`;
 
     // create user with generated password and set status to active
     req.body.password = password;
@@ -189,7 +189,7 @@ console.log(req.body)
     newUser.password = password;
     // console.log(req.user.province_id)
     // send email
-    // await new Email(newUser).sendAccountAdded();
+    await new Email(newUser).sendAccountAdded();
 
     const notification = await createNotification({ userID:newUser.id,title:"Account created for you", message:"your account has been created successfull", type:'account', isRead: false });
     

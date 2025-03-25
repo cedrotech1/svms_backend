@@ -643,7 +643,7 @@ export const approvePostController = async (req, res) => {
     } else if (role === 'cell_leader') {
       status = 'approvedbycell';
     } else if (role === 'village_leader') {
-      status = 'approvedbyvillage';
+      status = 'approved';
     }
 
     req.body.status = status;
